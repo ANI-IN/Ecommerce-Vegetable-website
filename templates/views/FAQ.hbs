@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <img src="css/images/logo1.png" alt="logo" class="logo">
+        <div class="group">
+            <ul class="navigation">
+                <li><a href="/">Home</a></li>
+                <li><a href="trends">Trends</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Shop
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="vegetables">Vegetable</a>
+                        <a href="fruits">Fruits</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Account
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Personal Details</a>
+                        <a href="#">Location</a>
+                        <a href="login">Login</a>
+                    </div>
+                </div>
+            </ul>
+            <div class="search">
+                <span class="icon">
+                    <ion-icon name="search-outline" class="searchbtn"></ion-icon>
+                    <ion-icon name="close-outline" class="closebtn"></ion-icon>
+                </span>
+            </div>
+            <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
+        </div>
+        <div class="SearchBox">
+            <input type="text" placeholder="Search Your Vegetable">
+        </div>
+    </header>
+    <div class="containerFluid">
+        <h2>Frequently Asked Questions (FAQs)</h2>
+        <div class="accordion">
+            <div class="icon"></div>
+            <h5>How do I contact customer service?</h5>
+        </div>
+        <div class="panel">
+            <p>
+                Our customer service team
+                is available throughout the week,
+                all seven days from 6 am to 10 pm.
+                They can be reached at +91-7018497392 or
+                via email at customerservice@mandikebhaav.com
+            </p>
+        </div>
+
+        <div class="accordion">
+            <div class="icon"></div>
+            <h5>Do I have to necessarily register to shop on this app?</h5>
+        </div>
+        <div class="panel">
+            <p>
+                You can surf and add products to the cart without registration but
+                only registered shoppers will be able to checkout and place orders.
+                Registered members have to be logged in at the time of checking out the cart,
+                they will be prompted to do so if they are not logged in.
+            </p>
+        </div>
+
+        <div class="accordion">
+            <div class="icon"></div>
+            <h5>How are the fruits and vegetables packaged?</h5>
+        </div>
+        <div class="panel">
+            <p>
+                Fresh fruits and vegetables are hand picked,
+                hand cleaned and hand packed in reusable plastic trays
+                covered with cling. We ensure hygienic and careful handling
+                of all our products.
+            </p>
+        </div>
+
+        <div class="accordion">
+            <div class="icon"></div>
+            <h5>Can I place orders for multiple cities?</h5>
+        </div>
+        <div class="panel">
+            <p>
+                Yes, you can have different city addresses under one account
+                and still place orders for multiple cities.
+            </p>
+        </div>
+        <div class="accordion">
+            <div class="icon"></div>
+            <h5>What are the modes of payment?</h5>
+        </div>
+        <div class="panel">
+            <p>
+                You can pay for your order on mandikebhaav.com using the following modes of payment:
+                a. Cash on delivery (COD)
+                b. Credit and debit cards (VISA / Mastercard / Rupay)
+                c. Paytm food wallet will be accepted.
+
+
+                If the order has to be left at the security gate, please continue to pay online via wallets, UPI, net
+                banking, or cards as you are doing now.
+
+                If you choose COD as the payment method, you will need to pay our delivery executive in cash at the time
+                of delivery.
+
+                To minimize contact, please give the executive the exact amount or the order total rounded up to the
+                nearest hundred. For example, if your order value is Rs.1,235, please pay exactly this amount.
+            </p>
+        </div>
+    </div>
+    <footer class="footer" id="foot">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="/#about">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="FAQ">FAQ</a></li>
+                        <li><a href="feedback">Feedback</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="vegetables">vegetables</a></li>
+                        <li><a href="fruits">fruits</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        let searchbtn = document.querySelector('.searchbtn');
+        let closebtn = document.querySelector('.closebtn');
+        let SearchBox = document.querySelector('.SearchBox');
+        let navigation = document.querySelector('.navigation');
+        let menuToggle = document.querySelector('.menuToggle');
+        let header = document.querySelector('header');
+
+        searchbtn.onclick = function () {
+            SearchBox.classList.add('active');
+            closebtn.classList.add('active');
+            searchbtn.classList.add('active');
+            menuToggle.classList.add('hide');
+            header.classList.remove('open');
+        }
+
+        closebtn.onclick = function () {
+            SearchBox.classList.remove('active');
+            closebtn.classList.remove('active');
+            searchbtn.classList.remove('active');
+            menuToggle.classList.remove('hide');
+        }
+
+        menuToggle.onclick = function () {
+            header.classList.toggle('open');
+            SearchBox.classList.remove('active');
+            closebtn.classList.remove('active');
+            searchbtn.classList.remove('active');
+        }    
+    </script>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        var len = acc.length;
+        for (i = 0; i < len; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>

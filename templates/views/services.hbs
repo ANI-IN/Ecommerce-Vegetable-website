@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Services</title>
+
+    <link rel="stylesheet" href="css/services.css">
+
+</head>
+
+<body>
+    <header>
+        <img src="css/images/logo1.png" alt="logo" class="logo">
+        <div class="group">
+            <ul class="navigation">
+                <li><a href='/'>Home</a></li>
+                <li><a href="trends">Trends</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Shop
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Vegetable</a>
+                        <a href="#">Fruits</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Account
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Personal Details</a>
+                        <a href="#">Location</a>
+                        <a href="login">Login</a>
+                    </div>
+                </div>
+            </ul>
+            <div class="search">
+                <span class="icon">
+                    <ion-icon name="search-outline" class="searchbtn"></ion-icon>
+                    <ion-icon name="close-outline" class="closebtn"></ion-icon>
+                </span>
+            </div>
+            <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
+        </div>
+        <div class="SearchBox">
+            <input type="text" placeholder="Search Your Vegetable">
+        </div>
+    </header>
+    <div class="background-section">
+        <h1>Our Services</h1>
+        <br><br>
+        <div class="container">
+
+            <div class="tab_box">
+                <button class="tab_btn active">Inventory Management</button>
+                <button class="tab_btn">Purchase Tracking</button>
+                <button class="tab_btn">Order Management</button>
+                <button class="tab_btn">Customer Database</button>
+                <button class="tab_btn">Trends Analysis</button>
+                <button class="tab_btn">User Authentication</button>
+                <div class="line"></div>
+            </div>
+            <div class="content_box">
+                <div class="content active">
+                    <p>
+                        Keep track of the quantity and type of vegetables in stock.
+                        This service helps you monitor the availability of different
+                        vegetables and ensure that you have enough stock to meet customer demands.
+                    </p>
+                </div>
+            </div>
+            <div class="content_box">
+                <div class="content">
+                    <p>
+                        Record details of vegetable purchases from customers.
+                        This service allows you to track the flow of vegetables
+                        in and out of your market and monitor revenue and expenses.
+                </div>
+            </div>
+            <div class="content_box">
+                <div class="content">
+                    <p>
+                        Keep track of customer orders, manage order fulfillment,
+                        and update the status of orders.
+                        This service ensures efficient order processing and timely deliveries
+                    </p>
+                </div>
+            </div>
+            <div class="content_box">
+                <div class="content">
+                    <p>
+                        Store customer information,
+                        including contact details and purchase history.
+                        This service assists in building customer profiles
+                        and personalized marketing strategies.
+                    </p>
+                </div>
+            </div>
+            <div class="content_box">
+                <div class="content">
+                    <p>
+                        Implement a service to calculate profit margins
+                        and analyze pricing trends.
+                        This helps in making informed decisions
+                        about pricing and maximizing profits.
+                    </p>
+                </div>
+            </div>
+            <div class="content_box">
+                <div class="content">
+                    <p>
+                        If multiple users are involved in managing the vegetable market,
+                        implement user authentication and access control to ensure data security and privacy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const tabs = document.querySelectorAll('.tab_btn');
+        const all_content = document.querySelectorAll('.content');
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', (e) => {
+                tabs.forEach(tab => { tab.classList.remove('active') });
+                tab.classList.add('active');
+
+                var line = document.querySelector('.line');
+
+                line.style.width = e.target.offsetWidth + "px";
+                line.style.left = e.target.offsetLeft + "px";
+
+                all_content.forEach(content => { content.classList.remove('active') });
+                all_content[index].classList.add('active');
+            })
+        })
+    </script>
+</body>
+
+</html>

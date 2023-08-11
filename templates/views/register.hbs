@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="css/homestyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+    <img src="css/images/logo1.png" alt="logo" class="logo">
+    <div class="group">
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="trends.html">Trends</a></li>
+            <li><a href="/#about">About</a></li>
+        </ul>
+        <div class="search">
+            <span class="icon">
+                <ion-icon name="search-outline" class="searchbtn"></ion-icon>
+                <ion-icon name="close-outline" class="closebtn"></ion-icon>
+            </span>
+        </div>
+        <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
+    </div>
+    <div class="SearchBox">
+        <input type="text" placeholder="Search Your Vegetable">
+    </div>
+    </header>
+        <div class = "grid grid-cols-2">
+            <div class=" my-6 mx-auto border border-slate-200 rounded-2xl shadow-xl overflow-hidden">
+                <svg height="210" width="306" fill="#621111">
+                    <path d="M 0 , 0
+                                         L 0,130
+                                         Q 145 250 360 110
+                                         L 306, 0
+                                         z"></path>
+                    <text x="20" y="90" fill="white" class="font-bold text-3xl font-sans tracking-wider	">Create</text>
+                    <text x="20" y="125" fill="white" class="font-bold text-3xl font-sans tracking-wider	">Account</text>
+                </svg>
+                <div class="p-6">
+                    <form action="/register" method="post">
+                        <div class="mb-3">
+                            <input type="text"
+                                class="px-7 py-1 border border-black rounded-lg text-black placeholder:text-black font-medium"
+                                placeholder="Name"
+                                name="full_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email"
+                                class="px-7 py-1 border border-black rounded-lg text-black placeholder:text-black font-medium"
+                                placeholder="Email"
+                                name="email" required>
+                        </div>
+                        <div class="mb-3"><input type="password"
+                                class="px-7 py-1 border border-black rounded-lg  text-black placeholder:text-black font-medium"
+                                placeholder="Password"
+                                name="password" required>
+                        </div>
+                        {{#if success}}
+                            <div id="success-message" style="color: green; font-weight: bold;">
+                                {{success}}
+                            </div>
+                            <script>
+                                // Automatically hide the success message after 5 seconds
+                                setTimeout(function() {
+                                    document.getElementById("success-message").style.display = "none";
+                                }, 5000);
+                            </script>
+                        {{/if}}
+                        <div class="flex items-center justify-end">
+                            <h2 class="font-semibold my-10 mx-2"> Sign Up</h2>
+                            <div
+                                class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-[#621111] sm:mx-0 sm:h-8 sm:w-8 text-white">
+                                <button id=" signup" onclick="func()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                        stroke="currentColor" class="w-6 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                     
+                </div>
+                <svg height="100" width="306" fill="#621111">
+                    <path d="M 350,100
+                                        Q 200 -100 80 200
+                                        z">
+                    </path>
+                    <a xlink:href="login">
+                        <text x="200" y="70" fill="white">Sign In</text>
+                    </a>
+                </svg>
+            </div>
+            <div><img src="css/images/sign.webp" style="padding-top: 25% ;padding-left:10%;"></div>
+        </div>
+        
+    
+<footer class="footer" id="foot">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>company</h4>
+                <ul>
+                    <li><a href="/#about">about us</a></li>
+                    <li><a href="#">our services</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>get help</h4>
+                <ul>
+                    <li><a href="FAQ">FAQ</a></li>
+                    <li><a href="feedback">Feedback</a></li>
+                    <li><a href="#">shipping</a></li>
+                    <li><a href="#">order status</a></li>
+                    <li><a href="#">payment options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>online shop</h4>
+                <ul>
+                    <li><a href="vegetables">vegetables</a></li>
+                    <li><a href="fruits">fruits</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        let searchbtn = document.querySelector('.searchbtn');
+        let closebtn = document.querySelector('.closebtn');
+        let SearchBox = document.querySelector('.SearchBox');
+        let navigation = document.querySelector('.navigation');
+        let menuToggle = document.querySelector('.menuToggle');
+        let header = document.querySelector('header');
+
+        searchbtn.onclick = function () {
+            SearchBox.classList.add('active');
+            closebtn.classList.add('active');
+            searchbtn.classList.add('active');
+            menuToggle.classList.add('hide');
+            header.classList.remove('open');
+        }
+
+        closebtn.onclick = function () {
+            SearchBox.classList.remove('active');
+            closebtn.classList.remove('active');
+            searchbtn.classList.remove('active');
+            menuToggle.classList.remove('hide');
+        }
+
+        menuToggle.onclick = function () {
+            header.classList.toggle('open');
+            SearchBox.classList.remove('active');
+            closebtn.classList.remove('active');
+            searchbtn.classList.remove('active');
+        }    
+    </script>
+    <script>
+        function func() {
+                document.getElementById("signup").submit();
+            }
+    </script>
+</body>
+
+</html>

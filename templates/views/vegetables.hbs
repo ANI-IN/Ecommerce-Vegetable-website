@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandi ke Bhav</title>
+    <link rel="stylesheet" href="css/veg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+
+
+    </style>
+
+</head>
+
+<body>
+<header>
+    <img src="css/images/logo1.png" alt="logo" class="logo">
+    <div class="group">
+        <ul class="navigation">
+            <li><a href='/'>Home</a></li>
+            <li><a href="trends">Trends</a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Shop
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="vegetables">Vegetable</a>
+                    <a href="fruits">Fruits</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Account
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Personal Details</a>
+                    <a href="#">Location</a>
+                    <a href="login">Login</a>
+                </div>
+            </div>
+        </ul>
+        <div class="search">
+            <span class="icon">
+                <ion-icon name="search-outline" class="searchbtn"></ion-icon>
+                <ion-icon name="close-outline" class="closebtn"></ion-icon>
+            </span>
+        </div>
+        <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
+    </div>
+    <div class="SearchBox">
+        <input type="text" placeholder="Search Your Vegetable">
+    </div>
+</header>
+
+    <br>
+    <div>
+        <center>
+            <h1
+                style="color: #621111; font-size: 50px; font-family: cursive; width: 30%; float: left; position: relative; left: 35%; margin-bottom: 2%;">
+                ~ Vegetables ~
+            </h1>
+            <div class="shopping">
+                <img src="css/images/cart.png">
+                <span class="quantity">0</span>
+            </div>
+        </center>
+    </div>
+    <br>
+
+    <div class="row_">
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/beans.jpg" alt="Beans">
+            </div>
+            <div class="detail">Beans <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[0].value = Number(document.getElementsByClassName('inp')[0].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[0].value = Number(document.getElementsByClassName('inp')[0].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/beetroot.jpg" alt="Beetroot">
+            </div>
+            <div class="detail">Beetroot <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[1].value = Number(document.getElementsByClassName('inp')[1].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[1].value = Number(document.getElementsByClassName('inp')[1].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/bhindi.jpg" alt="Bhindi">
+            </div>
+            <div class="detail">Bhindi <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[2].value = Number(document.getElementsByClassName('inp')[2].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[2].value = Number(document.getElementsByClassName('inp')[2].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/brinjal.jpg" alt="Brinjal">
+            </div>
+            <div class="detail">Brinjal <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[3].value = Number(document.getElementsByClassName('inp')[3].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[3].value = Number(document.getElementsByClassName('inp')[3].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+    <div class="row_">
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/broccoli.jpg" alt="Broccoli">
+            </div>
+            <div class="detail">Broccoli <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[4].value = Number(document.getElementsByClassName('inp')[4].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[4].value = Number(document.getElementsByClassName('inp')[4].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/capsicum.jpg" alt="Capsicum">
+            </div>
+            <div class="detail">Capsicum <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[5].value = Number(document.getElementsByClassName('inp')[5].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[5].value = Number(document.getElementsByClassName('inp')[5].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/carrot.jpg" alt="Carrot">
+            </div>
+            <div class="detail">Carrot <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[6].value = Number(document.getElementsByClassName('inp')[6].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[6].value = Number(document.getElementsByClassName('inp')[6].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/cauliflower.jpg" alt="Cauliflower">
+            </div>
+            <div class="detail">Cauliflower <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[7].value = Number(document.getElementsByClassName('inp')[7].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[7].value = Number(document.getElementsByClassName('inp')[7].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="row_">
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/coconut.jpg" alt="Coconut">
+            </div>
+            <div class="detail">Coconut <br>₹50</div>
+            <div class="btns">8
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[8].value = Number(document.getElementsByClassName('inp')[8].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[8].value = Number(document.getElementsByClassName('inp')[8].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/corn.jpg" alt="Corn">
+            </div>
+            <div class="detail">Corn <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[9].value = Number(document.getElementsByClassName('inp')[9].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[9].value = Number(document.getElementsByClassName('inp')[9].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/cucumber.jpg" alt="Cucumber">
+            </div>
+            <div class="detail">Cucumber <br>₹50</div>
+            <div class="btns">10
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[10].value = Number(document.getElementsByClassName('inp')[10].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[10].value = Number(document.getElementsByClassName('inp')[10].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/ginger.jpg" alt="Ginger">
+            </div>
+            <div class="detail">Ginger <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[11].value = Number(document.getElementsByClassName('inp')[11].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[11].value = Number(document.getElementsByClassName('inp')[11].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+
+    <br>
+    <div class="row_">
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/green coriander.jpg" alt="Green Corriander">
+            </div>
+            <div class="detail">Green Coriander <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[12].value = Number(document.getElementsByClassName('inp')[12].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[12].value = Number(document.getElementsByClassName('inp')[12].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/onion.jpg" alt="Onion">
+            </div>
+            <div class="detail">Onion <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[13].value = Number(document.getElementsByClassName('inp')[13].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[13].value = Number(document.getElementsByClassName('inp')[13].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/potato.jpg" alt="Potato">
+            </div>
+            <div class="detail">Potato <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[14].value = Number(document.getElementsByClassName('inp')[14].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[14].value = Number(document.getElementsByClassName('inp')[14].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/tomato.jpg" alt="Tomato">
+            </div>
+            <div class="detail">Tomato <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[15].value = Number(document.getElementsByClassName('inp')[15].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[15].value = Number(document.getElementsByClassName('inp')[15].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <br>
+    <div class="row_">
+
+        <div class="block column">
+            <div class="item-image">
+                <img src="css/images/spinach.jpg" alt="Spinach">
+            </div>
+            <div class="detail">Spinach <br>₹50</div>
+            <div class="btns">
+                <button class="qty"
+                    onclick="document.getElementsByClassName('inp')[16].value = Number(document.getElementsByClassName('inp')[16].value)-1">-</button><input
+                    type="text" value="1" class="inp"><button class="qty"
+                    onclick="document.getElementsByClassName('inp')[16].value = Number(document.getElementsByClassName('inp')[16].value)+1">+</button>
+                <br>
+                <button onclick="addcart()"
+                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                    to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h1>Cart</h1>
+        <ul class="listCard">
+        </ul>
+        <div class="checkOut">
+            <div class="total">₹0</div>
+            <div class="closeShopping">Close</div>
+        </div>
+    </div>
+
+    <script>
+        let body = document.querySelector('body');
+        let openShopping = document.querySelector('.shopping');
+        let closeShopping = document.querySelector('.closeShopping');
+
+        openShopping.addEventListener('click', () => {
+            body.classList.add('active');
+        })
+        closeShopping.addEventListener('click', () => {
+            body.classList.remove('active');
+        })
+
+    </script>
+
+    <br>
+
+    <footer class="footer" >
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="/#about">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="FAQ">FAQ</a></li>
+                        <li><a href="feedback">Feedback</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="vegetables">vegetables</a></li>
+                        <li><a href="fruits">fruits</a></li>
+    
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        let searchbtn = document.querySelector('.searchbtn');
+        let closebtn = document.querySelector('.closebtn');
+        let SearchBox = document.querySelector('.SearchBox');
+        let navigation = document.querySelector('.navigation');
+        let menuToggle = document.querySelector('.menuToggle');
+        let header = document.querySelector('header');
+
+        searchbtn.onclick = function () {
+            SearchBox.classList.add('active');
+            closebtn.classList.add('active');
+            searchbtn.classList.add('active');
+            menuToggle.classList.add('hide');
+            header.classList.remove('open');
+        }
+
+        closebtn.onclick = function () {
+            SearchBox.classList.remove('active');
+            closebtn.classList.remove('active');
+            searchbtn.classList.remove('active');
+            menuToggle.classList.remove('hide');
+        }
+
+        menuToggle.onclick = function () {
+            header.classList.toggle('open');
+            SearchBox.classList.remove('active');
+            closebtn.classList.remove('active');
+            searchbtn.classList.remove('active');
+        }    
+    </script>
+</body>
+
+</html>
