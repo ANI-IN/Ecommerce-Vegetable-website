@@ -143,7 +143,7 @@ app.post("/login", async (req, res) => {
 
         if (user && isMatch) {
             // Successful login
-            
+           // 
             res.render("index", { success: "Login successful! Welcome back." });
         } else {
             res.render("login", { error: "Invalid email or password. Please try again." });
