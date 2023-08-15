@@ -11,26 +11,7 @@
 </head>
 
 <body>
-    <header>
-    <img src="css/images/logo1.png" alt="logo" class="logo">
-    <div class="group">
-        <ul class="navigation">
-            <li><a href="/">Home</a></li>
-            <li><a href="trends.html">Trends</a></li>
-            <li><a href="/#about">About</a></li>
-        </ul>
-        <div class="search">
-            <span class="icon">
-                <ion-icon name="search-outline" class="searchbtn"></ion-icon>
-                <ion-icon name="close-outline" class="closebtn"></ion-icon>
-            </span>
-        </div>
-        <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
-    </div>
-    <div class="SearchBox">
-        <input type="text" placeholder="Search Your Vegetable">
-    </div>
-    </header>
+        {{> header }}
         <div class = "grid grid-cols-2">
             <div class=" my-6 mx-auto border border-slate-200 rounded-2xl shadow-xl overflow-hidden">
                 <svg height="210" width="306" fill="#621111">
@@ -42,35 +23,35 @@
                     <text x="20" y="90" fill="white" class="font-bold text-3xl font-sans tracking-wider	">Create</text>
                     <text x="20" y="125" fill="white" class="font-bold text-3xl font-sans tracking-wider	">Account</text>
                 </svg>
-                <div class="p-6">
+                <div class="p-5">
                     <form action="/register" method="post">
                         <div class="mb-3">
                             <input type="text"
                                 class="px-7 py-1 border border-black rounded-lg text-black placeholder:text-black font-medium"
                                 placeholder="Name"
-                                name="full_name" required>
+                                name="full_name">
                         </div>
                         <div class="mb-3">
-                            <input type="email"
+                            <input type="text"
                                 class="px-7 py-1 border border-black rounded-lg text-black placeholder:text-black font-medium"
                                 placeholder="Email"
-                                name="email" required>
+                                name="email">
                         </div>
                         <div class="mb-3"><input type="password"
                                 class="px-7 py-1 border border-black rounded-lg  text-black placeholder:text-black font-medium"
                                 placeholder="Password"
-                                name="password" required>
+                                name="password">
                         </div>
                         {{#if success}}
-                            <div id="success-message" style="color: green; font-weight: bold;">
-                                {{success}}
-                            </div>
-                            <script>
-                                // Automatically hide the success message after 5 seconds
-                                setTimeout(function() {
-                                    document.getElementById("success-message").style.display = "none";
-                                }, 5000);
-                            </script>
+                        <div id="success-message" style="color: green; font-weight: bold;">
+                            {{success}}
+                        </div>
+                        <script>
+                            // Automatically hide the success message after 5 seconds
+                            setTimeout(function () {
+                                document.getElementById("success-message").style.display = "none";
+                            }, 5000);
+                        </script>
                         {{/if}}
                         <div class="flex items-center justify-end">
                             <h2 class="font-semibold my-10 mx-2"> Sign Up</h2>
@@ -83,10 +64,10 @@
                                             d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                     </svg>
                                 </button>
+            
                             </div>
                         </div>
                     </form>
-                     
                 </div>
                 <svg height="100" width="306" fill="#621111">
                     <path d="M 350,100
@@ -102,78 +83,7 @@
         </div>
         
     
-<footer class="footer" id="foot">
-    <div class="container">
-        <div class="row">
-            <div class="footer-col">
-                <h4>company</h4>
-                <ul>
-                    <li><a href="/#about">about us</a></li>
-                    <li><a href="#">our services</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>get help</h4>
-                <ul>
-                    <li><a href="FAQ">FAQ</a></li>
-                    <li><a href="feedback">Feedback</a></li>
-                    <li><a href="#">shipping</a></li>
-                    <li><a href="#">order status</a></li>
-                    <li><a href="#">payment options</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>online shop</h4>
-                <ul>
-                    <li><a href="vegetables">vegetables</a></li>
-                    <li><a href="fruits">fruits</a></li>
-
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>follow us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
-        let searchbtn = document.querySelector('.searchbtn');
-        let closebtn = document.querySelector('.closebtn');
-        let SearchBox = document.querySelector('.SearchBox');
-        let navigation = document.querySelector('.navigation');
-        let menuToggle = document.querySelector('.menuToggle');
-        let header = document.querySelector('header');
-
-        searchbtn.onclick = function () {
-            SearchBox.classList.add('active');
-            closebtn.classList.add('active');
-            searchbtn.classList.add('active');
-            menuToggle.classList.add('hide');
-            header.classList.remove('open');
-        }
-
-        closebtn.onclick = function () {
-            SearchBox.classList.remove('active');
-            closebtn.classList.remove('active');
-            searchbtn.classList.remove('active');
-            menuToggle.classList.remove('hide');
-        }
-
-        menuToggle.onclick = function () {
-            header.classList.toggle('open');
-            SearchBox.classList.remove('active');
-            closebtn.classList.remove('active');
-            searchbtn.classList.remove('active');
-        }    
-    </script>
+    {{> footer }}
     <script>
         function func() {
                 document.getElementById("signup").submit();

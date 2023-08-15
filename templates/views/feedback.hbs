@@ -11,44 +11,7 @@
 </head>
 
 <body>
-    <header>
-        <img src="css/images/logo1.png" alt="logo" class="logo">
-        <div class="group">
-            <ul class="navigation">
-                <li><a href="/">Home</a></li>
-                <li><a href="trends.html">Trends</a></li>
-                <div class="dropdown">
-                    <button class="dropbtn">Shop
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="vegetables.html">Vegetable</a>
-                        <a href="fruits.html">Fruits</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn">Account
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Personal Details</a>
-                        <a href="#">Location</a>
-                        <a href="login">Login</a>
-                    </div>
-                </div>
-            </ul>
-            <div class="search">
-                <span class="icon">
-                    <ion-icon name="search-outline" class="searchbtn"></ion-icon>
-                    <ion-icon name="close-outline" class="closebtn"></ion-icon>
-                </span>
-            </div>
-            <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
-        </div>
-        <div class="SearchBox">
-            <input type="text" placeholder="Search Your Vegetable">
-        </div>
-    </header>
+    {{> header }}
     <h1 style="margin-top: 10%; ">We'd love to hear some feedback!!</h1>
     <div class="contain2">
         <div class="post">
@@ -56,15 +19,15 @@
             <div class="edit">EDIT</div>
         </div>
         <div class="star-widget">
-            <input type="radio" name="rate" id="rate-5" value="5">
+            <input type="radio" name="rate" id="rate-5">
             <label for="rate-5" class="fas fa-star"></label>
-            <input type="radio" name="rate" id="rate-4" value="4">
+            <input type="radio" name="rate" id="rate-4">
             <label for="rate-4" class="fas fa-star"></label>
-            <input type="radio" name="rate" id="rate-3" value="3">
+            <input type="radio" name="rate" id="rate-3">
             <label for="rate-3" class="fas fa-star"></label>
-            <input type="radio" name="rate" id="rate-2" value="2">
+            <input type="radio" name="rate" id="rate-2">
             <label for="rate-2" class="fas fa-star"></label>
-            <input type="radio" name="rate" id="rate-1" value="1">
+            <input type="radio" name="rate" id="rate-1">
             <label for="rate-1" class="fas fa-star"></label>
             <form action="/feedback" method="post">
                 <header></header>
@@ -78,95 +41,8 @@
         </div>
     </div>
 
-<footer class="footer" id="foot">
-    <div class="container">
-        <div class="row">
-            <div class="footer-col">
-                <h4>company</h4>
-                <ul>
-                    <li><a href="/#about">about us</a></li>
-                    <li><a href="#">our services</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>get help</h4>
-                <ul>
-                    <li><a href="FAQ">FAQ</a></li>
-                    <li><a href="feedback">Feedback</a></li>
-                    <li><a href="#">shipping</a></li>
-                    <li><a href="#">order status</a></li>
-                    <li><a href="#">payment options</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>online shop</h4>
-                <ul>
-                    <li><a href="vegetables">vegetables</a></li>
-                    <li><a href="fruits">fruits</a></li>
+    {{> footer}}
 
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>follow us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
-        let searchbtn = document.querySelector('.searchbtn');
-        let closebtn = document.querySelector('.closebtn');
-        let SearchBox = document.querySelector('.SearchBox');
-        let navigation = document.querySelector('.navigation');
-        let menuToggle = document.querySelector('.menuToggle');
-        let header = document.querySelector('header');
-
-        searchbtn.onclick = function () {
-            SearchBox.classList.add('active');
-            closebtn.classList.add('active');
-            searchbtn.classList.add('active');
-            menuToggle.classList.add('hide');
-            header.classList.remove('open');
-        }
-
-        closebtn.onclick = function () {
-            SearchBox.classList.remove('active');
-            closebtn.classList.remove('active');
-            searchbtn.classList.remove('active');
-            menuToggle.classList.remove('hide');
-        }
-
-        menuToggle.onclick = function () {
-            header.classList.toggle('open');
-            SearchBox.classList.remove('active');
-            closebtn.classList.remove('active');
-            searchbtn.classList.remove('active');
-        }
-
-        const btn = document.querySelector("button");
-        const post = document.querySelector(".post");
-        const widget = document.querySelector(".star-widget");
-        const editbtn = document.querySelector(".edit");
-        btn.onclick = function () {
-            widget.style.display = "none";
-            post.style.display = "block";
-            editbtn.onclick = function () {
-                widget.style.display = "block";
-                post.style.display = "none";
-
-            }
-            return false;
-        }
-
-    </script>
 </body>
 
 </html>

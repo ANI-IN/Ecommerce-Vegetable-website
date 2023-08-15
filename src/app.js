@@ -35,46 +35,55 @@ hbs.registerPartials(partials_path);
 
 //console.log(process.env.SECRET_KEY);
 
-app.get("/",(req, res)=>{
-    res.render("index");
-})
+app.get("/", (req, res) => {
+    const isLoggedIn = req.cookies.jwt ? true : false;
+    res.render("index", { isLoggedIn });
+});
+
+app.get("/login", (req, res) => {
+    const isLoggedIn = req.cookies.jwt ? true : false;
+    res.render("login", { isLoggedIn });
+});
 
 app.get("/secret", auth ,(req, res)=>{
- //   console.log(`This the cookie ${req.cookies.jwt}`);
-    res.render("secret");
+    //   console.log(`This the cookie ${req.cookies.jwt}`);
+       res.render("secret");
+   })
+
+
+   app.get("/payment" , (req,res)=>{
+    res.render("payment");
 })
 
+app.get("/logout", auth, async (req, res) => {
+    try {
+        // Remove the current token from the user's tokens array
+        req.user.tokens = req.user.tokens.filter((currElement) => {
+            return currElement.token !== req.token;
+        });
 
-app.get("/logout" ,auth, async(req,res)=>{
-   try {
-   //  console.log(req.user);
+        // Clear the JWT cookie
+        res.clearCookie("jwt");
 
-     req.user.tokens = req.user.tokens.filter((currElement)=>{
-        return currElement.token !== req.token
-     })
+        // Save the user and redirect to the home page
+        await req.user.save();
+        res.redirect("/");
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
 
-     res.clearCookie("jwt")
-  //   console.log("Log out success")
-     await req.user.save();
-     res.render("login");
-   } catch (error) {
-    res.send(500).send(error);
-   }
-})
 
 app.get("/register",(req, res)=>{
     res.render("register");
 })
 
-app.get("/login" , (req,res)=>{
-    res.render("login");
-})
 
-app.get("/feedback" , (req,res)=>{
+app.get("/feedback" ,auth , (req,res)=>{
     res.render("feedback");
 })
 
-app.get("/FAQ" , (req,res)=>{
+app.get("/FAQ" ,auth , (req,res)=>{
     res.render("FAQ");
 })
 
@@ -82,9 +91,6 @@ app.get("/fruits" , (req,res)=>{
     res.render("fruits");
 })
 
-app.get("/vegetables" , (req,res)=>{
-    res.render("vegetables");
-})
 
 app.get("/services",(req, res)=>{
     res.render("services");
@@ -122,6 +128,7 @@ app.get('*', (req, res) => {
 });
 
 
+
 app.post("/login", async (req, res) => {
     try {
         const email = req.body.email;
@@ -131,25 +138,23 @@ app.post("/login", async (req, res) => {
         
         const isMatch = await bcrypt.compare(password,user.password);
 
-        const token = await user.generateAuthToken();
-       // console.log("The token part " + token);
-      
-        res.cookie("jwt",token,{
-            expires: new Date(Date.now()+300000),
-            httpOnly:true
-        });
-
-        
-
         if (user && isMatch) {
             // Successful login
-           // 
-            res.render("index", { success: "Login successful! Welcome back." });
+            const token = await user.generateAuthToken();
+            res.cookie("jwt", token, {
+                expires: new Date(Date.now() + 300000),
+                httpOnly: true
+            });
+
+            // Redirect to the home page after successful login
+            res.redirect("/");
         } else {
-            res.render("login", { error: "Invalid email or password. Please try again." });
+            // Redirect to the login page with an error message
+            res.redirect("/login?error=Invalid%20email%20or%20password");
         }
     } catch (error) {
-        res.status(400).send("Invalid");
+        // Redirect to the login page with an error message
+        res.redirect("/login?error=Invalid");
     }
 });
 

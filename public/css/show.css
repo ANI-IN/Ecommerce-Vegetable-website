@@ -1,0 +1,32 @@
+body {
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #fff;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.left_img {
+    float: left;
+    /* display: inline-block; */
+    width: 45%;
+    /* border-right: 1px solid black; */
+    height: 100%;
+}
+
+
+.right_details {
+    float: right;
+    width: 55%;
+    margin: 0px;
+    /* border: 1px solid black; */
+    height: 100px;
+}
+
+.graph {
+    /* border: 1px solid black; */
+    width: 75%;
+    margin-left: 12.5%;
+    margin-top: 2%;
+}

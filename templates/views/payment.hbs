@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/payment.css">
+    <script src="https://kit.fontawesome.com/e8fa2e31b4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    {{>header}}
+    <div class="container_pay">
+        <div class="left">
+            <p>Payment methods</p>
+            <hr style="border:1px solid #ccc; margin: 0 15px;">
+            <div class="methods">
+                <div onclick="doFun()" id="tColorA" style="color: greenyellow;"><i class="fa-solid fa-credit-card"
+                        style="color: greenyellow;"></i> Payment by card </div>
+                <div onclick="doFunA()" id="tColorB"><i class="fa-solid fa-building-columns"></i> Net Banking </div>
+                <div onclick="doFunB()" id="tColorC"><i class="fa-solid fa-wallet"></i> UPI </div>
+            </div>
+            <hr style="border:1px solid #ccc; margin: 0 15px;">
+        </div>
+        <div class="center">
+            <a href="https://www.shift4shop.com/credit-card-logos.html"><img alt="Credit Card Logos"
+                    title="Credit Card Logos" src="https://www.shift4shop.com/images/credit-card-logos/cc-lg-4.png"
+                    width="250" height="auto" /></a>
+            <hr style="border:1px solid #ccc; margin: 0 15px;">
+    
+            <div class="card-details">
+                <form style="
+    				margin-top: 5%;
+    			">
+                    <p>Card number</p>
+                    <div class="c-number" id="c-number">
+                        <input id="number" class="cc-number" placeholder="Card number" maxlength="19" required>
+                        <i class="fa-solid fa-credit-card" style="margin: 0;"></i>
+                    </div>
+    
+                    <div class="c-details">
+                        <div>
+                            <p>Expiry date</p>
+                            <input id="e-date" class="cc-exp" placeholder="MM/YY" required maxlength="5" required>
+                        </div>
+                        <div>
+                            <p>CVV</p>
+                            <div class="cvv-box" id="cvv-box">
+                                <input type="password" id="cvv" class="cc-cvv" placeholder="CVV" required maxlength="3"
+                                    required>
+                                <i class="fa-solid fa-circle-question" title="3 digits on the back of the card"
+                                    style="cursor: pointer;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="email">
+                        <p>Email</p>
+                        <input type="email" placeholder="example@email.com" id="email" required>
+                    </div>
+                    <button class = "btns">PAY NOW</button>
+                </form>
+            </div>
+    
+            <div id="UPI">
+                <div
+                    style="font-size: 20px; font-family: Arial, Helvetica, sans-serif; margin-top: 12%;	margin-left: 23%; margin-bottom: -5%;">
+                    <h4>Scan the QR Code Below: </h4>
+                </div>
+    
+                <center>
+                    <img src="css/images/qr.png" alt="qr" style="margin-top: 12%;">
+                </center>
+            </div>
+    
+    
+    
+            <div class="netbanking">
+                <div class="title">
+                    <h4>Select a <span style="color: #6064b6">Payment</span> method</h4>
+                </div>
+    
+                <form action="#">
+                    <input type="radio" name="payment" id="visa">
+                    <input type="radio" name="payment" id="mastercard">
+                    <input type="radio" name="payment" id="paypal">
+                    <input type="radio" name="payment" id="AMEX">
+    
+    
+                    <div class="category">
+                        <label for="visa" class="visaMethod">
+                            <div class="imgName">
+                                <div class="imgContainer visa">
+                                    <img src="data:image/png;base64,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"
+                                        alt="">
+                                </div>
+                                <span class="name">HDFC</span>
+                            </div>
+                            <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+                        </label>
+    
+                        <label for="mastercard" class="mastercardMethod">
+                            <div class="imgName">
+                                <div class="imgContainer mastercard">
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/58/State_Bank_of_India_logo.svg/2560px-State_Bank_of_India_logo.svg.png"
+                                        alt="">
+                                </div>
+                                <span class="name">State Bank of India</span>
+                            </div>
+                            <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+                        </label>
+    
+                        <label for="paypal" class="paypalMethod">
+                            <div class="imgName">
+                                <div class="imgContainer paypal">
+                                    <img src="data:image/png;base64,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"
+                                        alt="">
+                                </div>
+                                <span class="name">Punjab National Bank</span>
+                            </div>
+                            <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+                        </label>
+    
+                        <label for="AMEX" class="amexMethod">
+                            <div class="imgName">
+                                <div class="imgContainer AMEX">
+                                    <img src="https://logowik.com/content/uploads/images/idfc-first-bank8846.jpg" alt="">
+                                </div>
+                                <span class="name">IDFC</span>
+                            </div>
+                            <span class="check"><i class="fa-solid fa-circle-check" style="color: #6064b6;"></i></span>
+                        </label>
+                    </div>
+                </form>
+                <button style="margin-top: 15px;" onclick="redirect()" class="btns">PAY NOW</button>
+            </div>
+    
+    
+    
+        </div>
+    
+    
+        <div class="right">
+            <p>Order information</p>
+            <hr style="border:1px solid #ccc; margin: 0 15px;">
+            <div class="details">
+                <div style="font-weight: bold; padding: 3px 0;">Order description</div>
+                <div style="padding: 3px 0;">Test payment</div>
+            </div>
+            <hr style="border:1px solid #ccc; margin: 0 15px;">
+            <a href="https://www.shift4shop.com/credit-card-logos.html"><img alt="Credit Card Logos"
+                    title="Credit Card Logos" src="https://www.shift4shop.com/images/credit-card-logos/cc-lg-4.png"
+                    width="100%" height="auto" /></a>
+            <button style="    margin-top: 92%;
+    			width: 33%;
+    			font-size: smaller;
+    			background-color: chocolate;
+    			margin-left: 31%;
+    			color: white;
+    			cursor: pointer;
+    		" class="btns">Confirm Payment</button>
+        </div>
+    
+    </div>
+    {{> footer }}
+    <script>
+        let tColorA = document.getElementById('tColorA'),
+                tColorB = document.getElementById('tColorB'),
+                tColorC = document.getElementById('tColorC'),
+                iconA = document.querySelector('.fa-credit-card'),
+                iconB = document.querySelector('.fa-building-columns'),
+                iconC = document.querySelector('.fa-wallet'),
+                cDetails = document.querySelector('.card-details');
+            netbanking = document.querySelector('.netbanking');
+
+
+            function redirect() {
+                if (document.getElementById('visa').checked)
+                    window.open("https://netbanking.hdfcbank.com/netbanking/");
+                else if (document.getElementById('mastercard').checked)
+                    window.open("https://retail.onlinesbi.sbi/retail/login.htm");
+                else if (document.getElementById('paypal').checked)
+                    window.open("https://netbanking.netpnb.com/corp/AuthenticationController?FORMSGROUP_ID__=AuthenticationFG&__START_TRAN_FLAG__=Y&__FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=024");
+                else if (document.getElementById('AMEX').checked)
+                    window.open("https://my.idfcfirstbank.com/login");
+            }
+
+            function doFun() {
+                tColorA.style.color = "greenyellow";
+                tColorB.style.color = "#444";
+                tColorC.style.color = "#444";
+                iconA.style.color = "greenyellow";
+                iconB.style.color = "#aaa";
+                iconC.style.color = "#aaa";
+                cDetails.style.display = "block";
+                document.getElementById('UPI').style.display = "none";
+                netbanking.style.display = "none";
+            }
+            function doFunA() {
+                tColorA.style.color = "#444";
+                tColorB.style.color = "greenyellow";
+                tColorC.style.color = "#444";
+                iconA.style.color = "#aaa";
+                iconB.style.color = "greenyellow";
+                iconC.style.color = "#aaa";
+                cDetails.style.display = "none";
+                document.getElementById('UPI').style.display = "none";
+                netbanking.style.display = "block";
+            }
+            function doFunB() {
+                tColorA.style.color = "#444";
+                tColorB.style.color = "#444";
+                tColorC.style.color = "greenyellow";
+                iconA.style.color = "#aaa";
+                iconB.style.color = "#aaa";
+                iconC.style.color = "greenyellow";
+                cDetails.style.display = "none";
+                document.getElementById('UPI').style.display = "block";
+                netbanking.style.display = "none";
+            }
+            let cNumber = document.getElementById('number');
+            cNumber.addEventListener('keyup', function (e) {
+                let num = cNumber.value;
+
+                let newValue = '';
+                num = num.replace(/\s/g, '');
+                for (var i = 0; i < num.length; i++) {
+                    if (i % 4 == 0 && i > 0) newValue = newValue.concat(' ');
+                    newValue = newValue.concat(num[i]);
+                    cNumber.value = newValue;
+                }
+
+                let ccNum = document.getElementById('c-number');
+                if (num.length < 16) {
+                    ccNum.style.border = "1px solid red";
+                } else {
+                    ccNum.style.border = "1px solid greenyellow";
+                }
+            });
+
+            let eDate = document.getElementById('e-date');
+            eDate.addEventListener('keyup', function (e) {
+
+                let newInput = eDate.value;
+
+                if (e.which !== 8) {
+                    var numChars = e.target.value.length;
+                    if (numChars == 2) {
+                        var thisVal = e.target.value;
+                        thisVal += '/';
+                        e.target.value = thisVal;
+                        console.log(thisVal.length)
+                    }
+                }
+
+                if (newInput.length < 5) {
+                    eDate.style.border = "1px solid red";
+                } else {
+                    eDate.style.border = "1px solid greenyellow";
+                }
+            });
+
+            let cvv = document.getElementById('cvv');
+            cvv.addEventListener('keyup', function (e) {
+
+                let elen = cvv.value;
+                let cvvBox = document.getElementById('cvv-box');
+                if (elen.length < 3) {
+                    cvvBox.style.border = "1px solid red";
+                } else {
+                    cvvBox.style.border = "1px solid greenyellow";
+                }
+            })
+    </script>
+</body>
+</html>

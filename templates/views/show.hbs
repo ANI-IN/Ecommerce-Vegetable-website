@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{product.name}}</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="css/show.css">
+</head>
+
+<body>
+    {{> header }}
+    <div style="
+    height: 400px;
+">
+        <div class="left_img">
+            <img src="{{product.image}}" alt="{{product.name}}" style="
+    height: 90%;
+    margin-left: 13%;
+    margin-top: 3%;
+">
+        </div>
+        <div class="right_details">
+            <h1>{{product.name}}</h1>
+            <br>
+            <h3>Price: ₹{{product.today}}/kg</h3>
+            <br>
+            <h3>Description</h3>
+            <p>{{product.description}}</p>
+        </div>
+    </div>
+    <div class="graph"><br>
+        <h2 style="text-align: center;">The Graph for Past 7 day Prices</h2><br><canvas id="prices"></canvas>
+    </div>
+    <script>
+        const d = new Date();
+        const day = d.getDate();
+        let prev = "{{product.previous_rates}}"
+        const arr = prev.split(",").reverse();
+        const [day1, day2, day3, day4, day5, day6] = [arr[0], arr[1], arr[2], arr[3], arr[4], arr[5]];
+        const data = [
+            { date: day - 6, price: day6 },
+            { date: day - 5, price: day5 },
+            { date: day - 4, price: day4 },
+            { date: day - 3, price: day3 },
+            { date: day - 2, price: day2 },
+            { date: day - 1, price: day1 },
+            { date: day, price: {{ product.today }} },
+            ];
+        var chart = new Chart(
+            document.getElementById('prices'),
+            {
+                type: 'line',
+                data: {
+                    labels: data.map(row => row.date),
+                    datasets: [
+                        {
+                            label: 'Prices',
+                            fill: false,
+                            borderColor: 'rgb(98, 17, 17)',
+                            data: data.map(row => row.price),
+                            tension: 0.1
+                        }
+                    ]
+                }
+            }
+        );
+
+    </script>
+    {{> footer }}
+</body>
+
+</html>
