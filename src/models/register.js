@@ -8,13 +8,11 @@ const employeeSchema= new mongoose.Schema({
         type:String, 
         required:true
     },
-
     email: {
         type:String,
         required:true,
         unique:true
     },
-
     password: {
         type:String,
         required:true
@@ -31,7 +29,7 @@ employeeSchema.methods.generateAuthToken = async function(){
     try {
    //     console.log(this._id);
 
-        const token = jwt.sign({_id:this._id.toString()},process.env.SECRET_KEY);
+        const token = jwt.sign({_id:this._id.toString()},'grindtillyoufckit/reversethekey/asdsad');
         this.tokens = this.tokens.concat({token:token});
 
   //     console.log(token);
@@ -40,7 +38,7 @@ employeeSchema.methods.generateAuthToken = async function(){
         return token;
 
     } catch (error) {
-        res.send("The Error part " + error);
+        //res.send("The Error part " + error);
         console.log("The Error part "+ error);
     }
 }

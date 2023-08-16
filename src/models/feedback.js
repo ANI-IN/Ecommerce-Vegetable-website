@@ -1,4 +1,3 @@
-// models/feedback.js
 const mongoose = require('mongoose');
 
 const feedbackSchema = new mongoose.Schema({

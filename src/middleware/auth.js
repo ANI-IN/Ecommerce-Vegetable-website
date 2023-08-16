@@ -1,22 +1,28 @@
 const jwt = require("jsonwebtoken");
 const Register = require("../models/register");
 
-const auth = async (req, res, next) => {
-    try {
-        const token = req.cookies.jwt;
+
+const auth = async (req , res, next)=> {
+  const token = req.cookies.jwt;
         if (!token) {
-            return res.redirect("/login");
-        }
-        const verifyUser = jwt.verify(token, process.env.SECRET_KEY);
-        const user = await Register.findOne({ _id: verifyUser._id });
-        if (!user) {
-            return res.redirect("/login");
-        }
+        // No token provided, user is not authenticated
+        req.isAuthenticated = false;
+        return next();
+        }  
+  try {
+        const verifyUser=jwt.verify(token,'grindtillyoufckit/reversethekey/asdsad');
+      //  console.log(verifyUser);
+        const user = await Register.findOne({_id:verifyUser._id})
+      // console.log(user.email);
+        req.isAuthenticated = true;
         req.token = token;
         req.user = user;
+
         next();
     } catch (error) {
-        res.status(401).send(error);
+        req.isAuthenticated = false;
+        next();
     }
-};
-module.exports = auth;
+}
+
+module.exports=auth;
