@@ -30,30 +30,32 @@
     {{#page vegg 4}}
     <div class="row_">
         {{#each items}}
-                <div class="block column">
-                    <a href="/{{this._id}}" class="link">
-                    <div class="item-image">
-                        <img src="{{this.image}}" alt="{{this.name}}">
-                    </div>
-                    <div class="detail">{{this.name}} <br>Rs.{{this.today}}/kg</div>
-                    </a>    
-                    <div class="btns">
-                        <form action="/cart/add" method="post">
-                        <input type="button" value="-" class="qty" onclick="subtract({{@index}})"><input type="text" value="1" class="inp" name="qty"><input type="button" value="+" class="qty" onclick="add({{@index}})">
-                        <br>
-                            <input type="hidden" name="item_id" value="{{this._id}}">
-                            <input type="hidden" name="item_name" value="{{this.name}}">
-                            <input type="hidden" name="item_img" value="{{this.image}}">
-                            <input type="hidden" name="item_price" value="{{this.today}}">
-                            <button onclick="addcart({{@index}})"
-                                style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
-                                to
-                                Cart</button>
-                        </form>
-                    </div>
+        <div class="block column">
+            <a href="/{{this._id}}" class="link">
+                <div class="item-image">
+                    <img src="{{this.image}}" alt="{{this.name}}">
                 </div>
+                <div class="detail">{{this.name}} <br>Rs.{{this.today}}/kg</div>
+            </a>
+            <div class="btns">
+                <form action="/cart/add" method="post">
+                    <input type="button" value="-" class="qty" onclick="subtract({{@index}})"><input type="text"
+                        value="1" class="inp" name="qty"><input type="button" value="+" class="qty"
+                        onclick="add({{@index}})">
+                    <br>
+                    <input type="hidden" name="item_id" value="{{this._id}}">
+                    <input type="hidden" name="item_name" value="{{this.name}}">
+                    <input type="hidden" name="item_img" value="{{this.image}}">
+                    <input type="hidden" name="item_price" value="{{this.today}}">
+                    <button onclick="addcart({{@index}})"
+                        style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                        to
+                        Cart</button>
+                </form>
+            </div>
+        </div>
 
-            <script>
+        <script>
 
             function subtract(i) {
                 var x = Number(document.getElementsByClassName('inp')[i].value);
@@ -66,35 +68,40 @@
                 if (x < 9)
                     document.getElementsByClassName('inp')[i].value = x + 1;
             }
-            </script>
+        </script>
         {{/each}}
-        </div>
-        {{/page}}
-        
+    </div>
+    {{/page}}
+
     <script>
         var cnt = 0; 
     </script>
     <div class="card">
-        <h1>Cart</h1>        
+        <h1>Cart</h1>
         <ul class="listCard">
             {{#if crt_items}}
             {{#each crt_items}}
-                <li>
-                    <script>cnt++;</script>
+            <li>
+                <script>cnt++;</script>
                 <div><img src="{{this.image}}" alt=""></div>
                 <div>{{this.name}}</div>
                 <div>{{this.quantity}}</div>
                 <div>{{this.price}}</div>
-                <div><button>Remove</button></div>
-                </li>
+                <div>
+                    <form action="/cart/remove" method="post"><input type="hidden" name="itemId"
+                            value="{{this._id}}"><input type="submit" value="Remove"></form>
+                </div>
+            </li>
             {{/each}}
             {{else}}
             <p>Your cart is empty.</p>
             {{/if}}
         </ul>
-        
+
         <div class="checkOut">
-            <div class="total">Proceed</div>
+            <a href="payment" style="text-decoration:none">
+                <div class="total">Proceed</div>
+            </a>
             <div class="closeShopping">Close</div>
         </div>
     </div>
@@ -117,6 +124,7 @@
     <br>
 
     {{> footer }}
-    
+
 </body>
+
 </html>

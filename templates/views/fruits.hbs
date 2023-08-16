@@ -87,7 +87,10 @@
                 <div>{{this.name}}</div>
                 <div>{{this.quantity}}</div>
                 <div>{{this.price}}</div>
-                <div><button>Remove</button></div>
+                <div>
+                    <form action="/cart/remove" method="post"><input type="hidden" name="itemId"
+                            value="{{this._id}}"><input type="submit" value="Remove"></form>
+                </div>
             </li>
             {{/each}}
             {{else}}
@@ -96,7 +99,7 @@
         </ul>
 
         <div class="checkOut">
-            <div class="total">Proceed</div>
+            <a href ="payment" style="text-decoration:none"><div class="total">Proceed</div></a>
             <div class="closeShopping">Close</div>
         </div>
     </div>

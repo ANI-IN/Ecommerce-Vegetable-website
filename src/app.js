@@ -50,6 +50,10 @@ app.get("/",(req, res)=>{
     res.render("index" , {isAuthenticated});
 })
 
+app.get("/success" , auth , async(req,res) => {
+    res.render("success");
+})
+
 
 app.get("/login" , (req,res)=>{
     res.render("login");
@@ -100,9 +104,15 @@ app.get("/FAQ" , auth , (req,res)=>{
     res.render("FAQ" , {isAuthenticated});
 })
 
-
-app.get("/payment" , (req,res)=>{
-    res.render("payment");
+app.get("/payment" , auth , async(req,res)=>{
+    const user_id = req.user._id;
+    const crt = await Cart.findOne({customer_id : user_id});
+    let sum = 0;
+    for(var i =0 ; i < crt.items.length; i++){
+        sum += crt.items[i].price;
+    }
+    //console.log(sum);
+    res.render("payment" , {crt , sum});
 })
 
 
@@ -146,9 +156,32 @@ app.get("/vegetables" , auth , async(req,res)=>{
     }
 })
 
+app.post("/cart/remove" , auth , async(req,res) =>{
+    try{
+        const itemId = req.body.itemId;
+        const user_id = req.user._id;
+
+        //let cart = await Cart.find({customer_id : user_id});
+        //let it = await cart.find({item_id : itemId});
+        //console.log(it);
+        //cart.updateMany({} , {$pull : {items : {$in : [{item_id : itemId}]}}});
+        //cart.updateOne({},{$pull: });
+        await Cart.findOneAndUpdate(
+            {customer_id: user_id},            
+            {$pull: {items : {item_id : itemId}}}
+        ).exec();
+        //await cart.save();
+        //res.redirect('back');
+        res.send('Removed');
+    }catch(error){
+        console.error(error);
+        res.status(500).send('Server Error');
+    }
+})
 
 app.post("/cart/add"  , auth , async(req , res) => {
     try{
+        const isAuthenticated = req.isAuthenticated;
         const item_id = req.body.item_id;
         const item_name = req.body.item_name;
         const item_img = req.body.item_img;
@@ -156,32 +189,36 @@ app.post("/cart/add"  , auth , async(req , res) => {
         const item_qty = req.body.qty;
         //console.log(req.user)
         const user_id = req.user._id;
-
         let cart = await Cart.findOne({customer_id : user_id});
+        //const crt_items = cart.items;
         if(!cart){
              cart = new Cart({customer_id: user_id , items:[]})
         }
 
+         // Check if the product is already in the cart
         const existingProduct = cart.items.findIndex((item) =>
             item.item_id.equals(item_id)
         );
-
        if (existingProduct !== -1) {
-           
-           cart.items[existingProduct].quantity += item_qty;
-           cart.items[existingProduct].price = item_price *item_qty;
+           // Increase the quantity if the product is already in the cart
+           cart.items[existingProduct].quantity += Number(item_qty);
+           cart.items[existingProduct].price += Number(item_qty) * Number(item_price);
        } else {
-          
-           cart.items.push({ item_id: item_id , name :  item_name , quantity: item_qty , price : item_price *item_qty, image:item_img});
+           // Add the product to the cart
+           cart.items.push({ item_id: item_id , name :  item_name , quantity: item_qty , price : item_price * item_qty, image:item_img});
        }
+
        await cart.save();
-       res.send('Product added to cart');
+       res.redirect('back');
+       //res.send('product added');
+       //res.render('vegetables' , {vegg , crt_items , isAuthenticated});
     } catch (error) {
     console.log(error);
     res.status(500).send('Server Error');
     }
 })
 
+   
 
 app.get("/:id" , async(req,res)=>{
     const {id} = req.params;
@@ -190,10 +227,10 @@ app.get("/:id" , async(req,res)=>{
     res.render("show" , {product});
 })
 
+
 // app.get("/trends",(req, res)=>{
 //     res.render("trends");
 // })
-
 
 app.post("/register", async (req, res) => {
     try {
@@ -206,7 +243,7 @@ app.post("/register", async (req, res) => {
         const token = await registerEmployee.generateAuthToken();
       //  console.log("The token part " + token);
       res.cookie("jwt",token,{
-        expires: new Date(Date.now()+300000),
+        expires: new Date(Date.now()+3000000000),
         httpOnly:true
       });
     //  console.log(cookie);
@@ -218,7 +255,6 @@ app.post("/register", async (req, res) => {
         res.status(400).send(error);
     }
 });
-
 
 app.post("/login", async (req, res) => {
     try {
@@ -244,7 +280,6 @@ app.post("/login", async (req, res) => {
         res.redirect("/login?error=Invalid");
     }
 });
-
 
 app.post("/feedback", async(req, res)=>{
     try {

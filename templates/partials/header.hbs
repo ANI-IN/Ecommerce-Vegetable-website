@@ -4,7 +4,7 @@
     <div class="group">
         <ul class="navigation">
             <li><a href='/'>Home</a></li>
-            <li><a href="trends">Trends</a></li>
+            <li><a href="/">Trends</a></li>
             <div class="dropdown">
                 <button class="dropbtn">Shop
                     <i class="fa fa-caret-down"></i>
@@ -39,6 +39,17 @@
     <div class="SearchBox">
         <input type="text" placeholder="Search Your Item" id="item">
     </div>
+    {{#if success}}
+        <div id="success-message" style="color: green; font-weight: bold;">
+            {{success}}
+        </div>
+        <script>
+            // Automatically hide the success message after 5 seconds
+            setTimeout(function() {
+                document.getElementById("success-message").style.display = "none";
+            }, 5000);
+        </script>
+         {{/if}}
     
 </header>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

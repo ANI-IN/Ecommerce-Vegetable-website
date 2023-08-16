@@ -11,6 +11,7 @@
 <body>
     {{> header }}
     {{#if isAuthenticated}}
+    
     <div class="popup-screen">
         <div class="popup-box">
             <i class="fas fa-times close-btn"></i>
@@ -253,6 +254,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     {{> footer }}
                 </div>
             </div>
@@ -298,5 +300,6 @@
                 popupScreen.style.display = "flex"; //Show the popup screen if the cookie is expired.
             }
         </script>
+        
 </body>
 </html>
