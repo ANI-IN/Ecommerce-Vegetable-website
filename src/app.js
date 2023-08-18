@@ -160,19 +160,11 @@ app.post("/cart/remove" , auth , async(req,res) =>{
     try{
         const itemId = req.body.itemId;
         const user_id = req.user._id;
-
-        //let cart = await Cart.find({customer_id : user_id});
-        //let it = await cart.find({item_id : itemId});
-        //console.log(it);
-        //cart.updateMany({} , {$pull : {items : {$in : [{item_id : itemId}]}}});
-        //cart.updateOne({},{$pull: });
         await Cart.findOneAndUpdate(
             {customer_id: user_id},            
             {$pull: {items : {item_id : itemId}}}
-        ).exec();
-        //await cart.save();
-        //res.redirect('back');
-        res.send('Removed');
+        )
+        res.redirect('back');
     }catch(error){
         console.error(error);
         res.status(500).send('Server Error');

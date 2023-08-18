@@ -87,10 +87,7 @@
                 <div>{{this.name}}</div>
                 <div>{{this.quantity}}</div>
                 <div>{{this.price}}</div>
-                <div>
-                    <form action="/cart/remove" method="post"><input type="hidden" name="itemId"
-                            value="{{this._id}}"><input type="submit" value="Remove"></form>
-                </div>
+                <div><form action="/cart/remove" method="post"><input type="hidden" name="itemId" value="{{this.item_id}}"><input type="submit" value="Remove"></form></div>
             </li>
             {{/each}}
             {{else}}
