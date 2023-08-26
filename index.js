@@ -3,7 +3,9 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const hbs = require("hbs");
-require("./db/conn");
+
+//require("./db/conn");
+
 const Register = require("./models/register");
 const async = require("hbs/lib/async");
 const exp = require("constants");
@@ -14,14 +16,28 @@ const cookieParser = require('cookie-parser');
 const auth = require("./middleware/auth");
 const Item = require('./models/items');
 const Cart = require('./models/cart');
+const mongoose = require('mongoose')
 
 
-const port=process.env.PORT || 3300;
+
+const PORT = process.env.PORT || 3300
 
 
-const static_path="/Users/animesh/Desktop/Registration/public"
-const template_path="/Users/animesh/Desktop/Registration/templates/views"
-const partials_path="/Users/animesh/Desktop/Registration/templates/partials"
+const static_path = path.join(__dirname, 'public');
+const template_path = path.join(__dirname, 'templates', 'views');
+const partials_path = path.join(__dirname, 'templates', 'partials');
+
+mongoose.set('strictQuery', false);
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+}
+
 
 
 
@@ -36,7 +52,6 @@ hbs.registerPartials(partials_path);
 
 
 app.use('/' , auth);
-
 hbs.registerHelper('page', function (arr, pageSize, options) {
     var result = [];
     for (var i = 0; i < arr.length; i += pageSize) {
@@ -45,37 +60,29 @@ hbs.registerHelper('page', function (arr, pageSize, options) {
     return result.join('');
 });
 
-app.get("/",(req, res)=>{
+app.get(["/", "/home"],(req, res)=>{
     const isAuthenticated = req.isAuthenticated;
     res.render("index" , {isAuthenticated});
 })
 
-app.get("/success" , auth , async(req,res) => {
-    res.render("success");
+
+
+app.get("/logout" ,  auth , async(req,res)=>{
+   try {
+   //  console.log(req.user);
+
+     req.user.tokens = req.user.tokens.filter((currElement)=>{
+        return currElement.token !== req.token
+     })
+
+     res.clearCookie("jwt")
+  //   console.log("Log out success")
+     await req.user.save();
+     res.render("login");
+   } catch (error) {
+    res.send(500).send(error);
+   }
 })
-
-
-app.get("/login" , (req,res)=>{
-    res.render("login");
-})
-
-
-app.get("/logout", auth, async (req, res) => {
-    try {
-       
-        req.user.tokens = req.user.tokens.filter((currElement) => {
-            return currElement.token !== req.token;
-        });
-
-        // Clear the JWT cookie
-        res.clearCookie("jwt");
-        await req.user.save();
-        res.redirect("/");
-    } catch (error) {
-        res.status(500).send(error);
-    }
-});
-
 
 app.get("/register", auth , (req, res)=>{
     const isAuthenticated = req.isAuthenticated;
@@ -87,6 +94,9 @@ app.get("/register", auth , (req, res)=>{
     }
 })
 
+app.get("/login" , (req,res)=>{
+    res.render("login");
+})
 
 app.get("/feedback" , auth , (req,res)=>{
     const isAuthenticated = req.isAuthenticated;
@@ -97,7 +107,6 @@ app.get("/feedback" , auth , (req,res)=>{
         res.render("login");
     }
 })
-
 
 app.get("/FAQ" , auth , (req,res)=>{
     const isAuthenticated = req.isAuthenticated;
@@ -115,32 +124,27 @@ app.get("/payment" , auth , async(req,res)=>{
     res.render("payment" , {crt , sum});
 })
 
-
 app.get("/services", auth , (req, res)=>{
     const isAuthenticated = req.isAuthenticated;
     res.render("services" , {isAuthenticated});
 })
 
+app.get("/success" , auth , async(req,res) => {
+    res.render("success");
+})
 
-app.get("/fruits", auth, async (req, res) => {
+app.get("/fruits" , auth , async(req,res)=>{
     const isAuthenticated = req.isAuthenticated;
-    if (isAuthenticated) {
+    if(isAuthenticated){
         const user_id = req.user._id;
-        let crt_items = [];
-
-        const crt = await Cart.findOne({ customer_id: user_id });
-
-        if (crt) {
-            crt_items = crt.items;
-        }
-
-        const fr = await Item.find({ category: "fruit" });
-        res.render("fruits", { fr, crt_items, isAuthenticated });
-    } else {
+        const fr = await Item.find({category:"fruit"});
+        const crt = await Cart.findOne({customer_id : user_id});
+        res.render("fruits" , {fr , crt , isAuthenticated});
+    }
+    else{
         res.render("login");
     }
-});
-
+})
 
 app.get("/vegetables" , auth , async(req,res)=>{
     const isAuthenticated = req.isAuthenticated;
@@ -148,27 +152,12 @@ app.get("/vegetables" , auth , async(req,res)=>{
         const user_id = req.user._id;
         const vegg = await Item.find({category:"vegetable"});
         const crt = await Cart.findOne({customer_id : user_id});
-        const crt_items = crt.items;
-        res.render("vegetables" , {vegg , crt_items , isAuthenticated});
+        res.render("vegetables" , {vegg , crt, isAuthenticated});
     }
     else{
         res.render("login");
     }
-})
-
-app.post("/cart/remove" , auth , async(req,res) =>{
-    try{
-        const itemId = req.body.itemId;
-        const user_id = req.user._id;
-        await Cart.findOneAndUpdate(
-            {customer_id: user_id},            
-            {$pull: {items : {item_id : itemId}}}
-        )
-        res.redirect('back');
-    }catch(error){
-        console.error(error);
-        res.status(500).send('Server Error');
-    }
+    
 })
 
 app.post("/cart/add"  , auth , async(req , res) => {
@@ -209,38 +198,52 @@ app.post("/cart/add"  , auth , async(req , res) => {
     res.status(500).send('Server Error');
     }
 })
-
-   
-
-app.get("/:id" , async(req,res)=>{
-    const {id} = req.params;
-    const product = await Item.findById(id);
-    //console.log(id);
-    res.render("show" , {product});
+app.post("/cart/remove" , auth , async(req,res) =>{
+    try{
+        const itemId = req.body.itemId;
+        const user_id = req.user._id;
+        await Cart.findOneAndUpdate(
+            {customer_id: user_id},            
+            {$pull: {items : {item_id : itemId}}}
+        )
+        res.redirect('back');
+    }catch(error){
+        console.error(error);
+        res.status(500).send('Server Error');
+    }
 })
-
 
 // app.get("/trends",(req, res)=>{
 //     res.render("trends");
 // })
 
-app.post("/register", async (req, res) => {
+  app.post("/register", async (req, res) => {
     try {
         const registerEmployee = new Register({
             full_name: req.body.full_name,
             email: req.body.email,
             password: req.body.password,
         });
+
       //  console.log("The success " + registerEmployee);
         const token = await registerEmployee.generateAuthToken();
       //  console.log("The token part " + token);
       res.cookie("jwt",token,{
-        expires: new Date(Date.now()+3000000000),
+        expires: new Date(Date.now()+30000000),
         httpOnly:true
       });
+      
     //  console.log(cookie);
+
         const registered = await registerEmployee.save();
+        const newCart = new Cart({ customer_id: registerEmployee._id, items: [] });
+        await newCart.save();
+
+        registerEmployee.cart = newCart._id;
+        await registerEmployee.save();
+
       //  console.log("The page part " + registered);
+
         res.render("register", { success: "Registration successful!." });
     } catch (error) {
         console.log(error);
@@ -257,19 +260,25 @@ app.post("/login", async (req, res) => {
         
         const isMatch = await bcrypt.compare(password,user.password);
 
+        const token = await user.generateAuthToken();
+       // console.log("The token part " + token);
+      
+        res.cookie("jwt",token,{
+            expires: new Date(Date.now()+30000000),
+            httpOnly:true
+        });
+        
+
         if (user && isMatch) {
             // Successful login
-            const token = await user.generateAuthToken();
-            res.cookie("jwt", token, {
-                expires: new Date(Date.now() + 300000),
-                httpOnly: true
-            });
+            
             res.redirect("/");
         } else {
             res.redirect("/login?error=Invalid%20email%20or%20password");
         }
     } catch (error) {
-        res.redirect("/login?error=Invalid");
+        console.log(error);
+        res.status(400).send("Invalid");
     }
 });
 
@@ -289,7 +298,18 @@ app.post("/feedback", async(req, res)=>{
     }
 })
 
-app.listen(port, ()=>{
-    console.log(`Server is Running at http://localhost:${port}`);
+app.get("/:id" , async(req,res)=>{
+     const {id} = req.params;
+     const product = await Item.findById(id);
+     //console.log(id);
+     res.render("show" , {product});
+     })
+
+
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is Running at http://localhost:${PORT}`);
+    });
+
 })
 
