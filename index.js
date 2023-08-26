@@ -213,9 +213,9 @@ app.post("/cart/remove" , auth , async(req,res) =>{
     }
 })
 
-// app.get("/trends",(req, res)=>{
-//     res.render("trends");
-// })
+ app.get("/trends",(req, res)=>{
+     res.render("trends");
+ })
 
   app.post("/register", async (req, res) => {
     try {
