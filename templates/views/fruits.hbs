@@ -79,8 +79,8 @@
     <div class="card">
         <h1>Cart</h1>
         <ul class="listCard">
-            {{#if crt_items}}
-            {{#each crt_items}}
+            {{#if crt.items.length}}
+            {{#each crt.items}}
             <li>
                 <script>cnt++;</script>
                 <div><img src="{{this.image}}" alt=""></div>
@@ -89,7 +89,7 @@
                 <div>{{this.price}}</div>
                 <div>
                     <form action="/cart/remove" method="post"><input type="hidden" name="itemId"
-                            value="{{this._id}}"><input type="submit" value="Remove"></form>
+                            value="{{this.item_id}}"><input type="submit" value="Remove"></form>
                 </div>
             </li>
             {{/each}}

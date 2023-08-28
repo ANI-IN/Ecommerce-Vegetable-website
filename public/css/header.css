@@ -7,7 +7,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    position: sticky;
+    position: static;
     height: 80px;
     background: #ffffff;
     padding: 20px 40px;
@@ -19,7 +19,7 @@ header {
 
 .logo {
     float: left;
-    width: 12%;
+    width: 11%;
 }
 
 header ul {

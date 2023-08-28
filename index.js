@@ -6,6 +6,7 @@ const hbs = require("hbs");
 
 //require("./db/conn");
 
+const favicon = require('serve-favicon');
 const Register = require("./models/register");
 const async = require("hbs/lib/async");
 const exp = require("constants");
@@ -26,6 +27,9 @@ const PORT = process.env.PORT || 3300
 const static_path = path.join(__dirname, 'public');
 const template_path = path.join(__dirname, 'templates', 'views');
 const partials_path = path.join(__dirname, 'templates', 'partials');
+
+
+app.use(favicon(path.join(static_path , 'css' , 'images' , 'favicon.ico')));
 
 mongoose.set('strictQuery', false);
 const connectDB = async () => {
@@ -64,7 +68,6 @@ app.get(["/", "/home"],(req, res)=>{
     const isAuthenticated = req.isAuthenticated;
     res.render("index" , {isAuthenticated});
 })
-
 
 
 app.get("/logout" ,  auth , async(req,res)=>{

@@ -20,6 +20,7 @@
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "jsonwebtoken": "^9.0.1",
-    "mongoose": "^7.4.1"
+    "mongoose": "^7.4.1",
+    "serve-favicon": "^2.5.0"
   }
 }

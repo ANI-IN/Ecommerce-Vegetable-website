@@ -79,8 +79,8 @@
     <div class="card">
         <h1>Cart</h1>
         <ul class="listCard">
-            {{#if crt_items}}
-            {{#each crt_items}}
+           {{#if crt.items.length}}
+            {{#each crt.items}}
             <li>
                 <script>cnt++;</script>
                 <div><img src="{{this.image}}" alt=""></div>
