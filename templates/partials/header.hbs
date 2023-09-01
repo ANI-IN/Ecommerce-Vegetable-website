@@ -4,7 +4,7 @@
     <div class="group">
         <ul class="navigation">
             <li><a href='/'>Home</a></li>
-            <li><a href="https://predict-i0aq.onrender.com/">Trends</a></li>
+            <li><a href="http://127.0.0.1:5000/">Trends</a></li>
             <div class="dropdown">
                 <button class="dropbtn">Shop
                     <i class="fa fa-caret-down"></i>
@@ -28,29 +28,12 @@
                 </div>
             </div>
         </ul>
-        <div class="search">
-            <span class="icon">
-                <ion-icon name="search-outline" class="searchbtn"></ion-icon>
-                <ion-icon name="close-outline" class="closebtn"></ion-icon>
-            </span>
-        </div>
+        
         <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
     </div>
     <div class="SearchBox">
         <input type="text" placeholder="Search Your Item" id="item">
     </div>
-    {{#if success}}
-        <div id="success-message" style="color: green; font-weight: bold;">
-            {{success}}
-        </div>
-        <script>
-            // Automatically hide the success message after 5 seconds
-            setTimeout(function() {
-                document.getElementById("success-message").style.display = "none";
-            }, 5000);
-        </script>
-         {{/if}}
-    
 </header>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

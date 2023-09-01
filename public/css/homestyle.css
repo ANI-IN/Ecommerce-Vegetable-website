@@ -114,10 +114,6 @@ header {
 
 }
 
-.logo {
-  float: left;
-  width: 12%;
-}
 
 header ul {
   position: relative;
@@ -327,7 +323,7 @@ header .search {
 .contain .welcome {
   position: absolute;
   top: 41%;
-  left: 20%;
+  left: 18%;
   font-family: "Audiowide", sans-serif;
   font-size: 76px;
   color: white;

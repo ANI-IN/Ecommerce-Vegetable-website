@@ -39,15 +39,15 @@
             </a>
             <div class="btns">
                 <form action="/cart/add" method="post">
-                    <input type="button" value="-" class="qty" onclick="subtract({{@index}})"><input type="text"
+                    <input type="button" value="-" class="qty" onclick="subtract({{this.index}})"><input type="text"
                         value="1" class="inp" name="qty"><input type="button" value="+" class="qty"
-                        onclick="add({{@index}})">
+                        onclick="add({{this.index}})">
                     <br>
                     <input type="hidden" name="item_id" value="{{this._id}}">
                     <input type="hidden" name="item_name" value="{{this.name}}">
                     <input type="hidden" name="item_img" value="{{this.image}}">
                     <input type="hidden" name="item_price" value="{{this.today}}">
-                    <button onclick="addcart({{@index}})"
+                    <button
                         style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
                         to
                         Cart</button>
@@ -99,7 +99,9 @@
         </ul>
 
         <div class="checkOut">
-            <a href ="payment" style="text-decoration:none"><div class="total">Proceed</div></a>
+            <a href="payment" style="text-decoration:none">
+                <div class="total">Proceed</div>
+            </a>
             <div class="closeShopping">Close</div>
         </div>
     </div>

@@ -11,7 +11,6 @@
 <body>
     {{> header }}
     {{#if isAuthenticated}}
-    
     <div class="popup-screen">
         <div class="popup-box">
             <i class="fas fa-times close-btn"></i>
@@ -22,25 +21,27 @@
     </div>
      
     <div class = "contain">
-        <img src="css/images/back.png" id="back">
+         <img src="css/images/back.png" id="back">
         <h1 class="welcome">Welcome to Your Mandi</h1>
         <button class= "btn" onclick="window.location.href = 'register';">Get Started</button>
         
         <div class="about" style="height:200px;" id="about">
-                <center>
-                    <h1 style="text-decoration: underline;">About Us</h1>
-                </center>
-                <div style="float:left; height:100%; width:25%"><img src="css/images/about.png" alt="about" style="    margin-left: 6%;
-    width: 167%;
-    height: 136%;
-    margin-top: 6%;"></div>
+            <center>
+                <h1 style="text-decoration: underline;">About Us</h1>
+            </center>
+            <div style="float:left; height:100%; width:25%"><img src="css/images/about.png" alt="about" style="    margin-left: 6%;
+            width: 167%;
+            height: 136%;
+            margin-top: 6%;"></div>
         
-                <div style="float: right;
-                        width: 55%;
-                        margin: 0px;
-                        height: 100px;">
-                <center><h1><b>What do we have?</b></h1></center>
-                
+            <div style="float: right;
+                                width: 55%;
+                                margin: 0px;
+                                height: 100px;">
+                <center>
+                    <h1><b>What do we have?</b></h1>
+                </center>
+        
                 <p style="padding: 2px;">The objective of our work is to enhance vegetable pricing analysis. Our tool began by
                     making
                     minor adjustments, but has since tremendously improved.</p>
@@ -53,7 +54,8 @@
                     we have
                     better analytical tools, we can lessen price spikes for vegetables. This tool is simple to use
                     for the farming community.</p>
-                    </div>
+            </div>
+        
             <br><br>
             <center>
                 <h1 style="color: #621111;; font-size: 50px ;margin-top:20%">Explore Bunch of Vegetables with Us <br>
@@ -150,7 +152,7 @@
         </div>
         
         <div class="contain">
-            <img src="css/images/back.png" id="back">
+            <img src="css\images\back.png" id="back">
             <h1 class="welcome">Welcome to Your Mandi</h1>
             <button class="btn" onclick="window.location.href = 'register';">Get Started</button>
         
@@ -181,8 +183,7 @@
                     we have
                     better analytical tools, we can lessen price spikes for vegetables. This tool is simple to use
                     for the farming community.</p>
-                    </div>
-        
+                    </div>        
         
                 <br><br>
                 <center>
@@ -264,7 +265,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     {{> footer }}
                 </div>
             </div>
@@ -310,6 +310,5 @@
                 popupScreen.style.display = "flex"; //Show the popup screen if the cookie is expired.
             }
         </script>
-        
 </body>
 </html>

@@ -1,0 +1,420 @@
+[{
+  "_id": {
+    "$oid": "64d3c7030f11e315ee77dc5e"
+  },
+  "name": "Beans",
+  "description": "Belonging to the family of beans, the cluster beans are one of the healthy green veggies that can bring taste and nutrition to your plate. Make Guar and Masoor ki daal or the delicious gavarfali ki sabzi, these Cluster Beans are a nutritious addition to your diet.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/beans.jpg",
+  "previous_rates": "47,47,47,47,47,47",
+  "today": 47,
+  "__v": 0,
+  "index": "0"
+},
+{
+  "_id": {
+    "$oid": "64d3c9faec0e02aac25a33bd"
+  },
+  "name": "Beetroot",
+  "description": "Beets are versatile and nutritious root vegetables with vibrant colours. Whether you're looking to add colour to your plate or boost your daily nutritional intake, the deep hues of beets are sure to please your eye and pallet. ",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/beetroot.jpg",
+  "previous_rates": "38,38,38,40,40,40",
+  "today": 40,
+  "__v": 0,
+  "index": "1"
+},
+{
+  "_id": {
+    "$oid": "64d3c9faec0e02aac25a33be"
+  },
+  "name": "Okra",
+  "description": "Okra also commonly known as Lady Finger arrives in the pod, for a fun and unique cooking experience.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/bhindi.jpg",
+  "previous_rates": "39,39,39,44,44,44",
+  "today": 44,
+  "__v": 0,
+  "index": "2"
+},
+{
+  "_id": {
+    "$oid": "64d3c9faec0e02aac25a33bf"
+  },
+  "name": "Brinjal",
+  "description": "Brinjal is a terrific vegetable to bring into your weekly cooking rotation. The bold flavour of Brinjal makes it a great choice for main dishes, side dishes, salads and even desserts. ",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/brinjal.jpg",
+  "previous_rates": "28,28,28,23,23,23",
+  "today": 23,
+  "__v": 0,
+  "index": "3"
+},
+{
+  "_id": {
+    "$oid": "64d3c9faec0e02aac25a33c0"
+  },
+  "name": "Broccoli",
+  "description": "Broccoli is a nutritious and delicious vegetable that can be added to a diet in many ways. It can be eaten raw, as a side dish, or as an ingredient in various recipes. It can also be roasted, steamed, grilled, sauteed, stir-fried, or served as a soup.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/broccoli.jpg",
+  "previous_rates": "24,24,24,24,24,24",
+  "today": 24,
+  "__v": 0,
+  "index": "4"
+},
+{
+  "_id": {
+    "$oid": "64d3c9faec0e02aac25a33c1"
+  },
+  "name": "Capsicum",
+  "description": "Green Capsicums come in different shapes and sizes to make it easy for you to add vibrant colour and sweet taste wherever you want to. Green Capsicums add a sweet taste and delicious flavour to your favourite dishes. You can cut them into wedges to eat fresh, dice them to mix into dishes, or leave them halved so you can stuff them and bake them.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/capsicum.jpg",
+  "previous_rates": "49,49,49,48,48,48",
+  "today": 48,
+  "__v": 0,
+  "index": "5"
+},
+{
+  "_id": {
+    "$oid": "64d3cbb4e69f714956a2f8ed"
+  },
+  "name": "Carrot",
+  "description": "Carrots are a great addition to soups and stews, appetizers and hors d'oeuvres, side dishes and salads. They can be roasted in the oven or boiled on the stove top. Try using carrots in place of potato slices in soup, for a lower-carbohydrate meal. ",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/carrot.jpg",
+  "previous_rates": "47,47,47,49,49,49",
+  "today": 49,
+  "__v": 0,
+  "index": "6"
+},
+{
+  "_id": {
+    "$oid": "64d3cbb4e69f714956a2f8ee"
+  },
+  "name": "Cauliflower",
+  "description": "Cauliflower can be enjoyed raw or cooked. Raw cauliflower makes a great snack when dipped in hummus or another healthy vegetable dip. Your favourite pasta dish can be quickly upgraded to a healthier alternative with the addition of fresh cauliflower.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/cauliflower.jpg",
+  "previous_rates": "24,24,24,24,24,24",
+  "today": 24,
+  "__v": 0,
+  "index": "7"
+},
+{
+  "_id": {
+    "$oid": "64d3cbb4e69f714956a2f8ef"
+  },
+  "name": "Corn",
+  "description": "Also known as Maize, Sweet Corn is a cereal grain that originates from the Mexican region. Crisp, sweet, and delicious, sweet corn is a summer staple. It tastes amazing when grilled, where the rich charring and smoky flavour it gets is hard to beat.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/corn.jpg",
+  "previous_rates": "27,27,27,29,29,29",
+  "today": 23,
+  "__v": 0,
+  "index": "8"
+},
+{
+  "_id": {
+    "$oid": "64d3cbb4e69f714956a2f8f0"
+  },
+  "name": "Cucumber",
+  "description": "Cucumbers are a refreshing, nutritious and incredibly versatile addition to any diet. Cucumbers are high in water content and have a mild and refreshing taste. They offer crispiness, refreshing flavour, and a wonderful texture to salads. You can either slice the Cucumber or spiralize it to make it interesting!",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/cucumber.jpg",
+  "previous_rates": "28,26,26,26,26,26",
+  "today": 26,
+  "__v": 0,
+  "index": "9"
+},
+{
+  "_id": {
+    "$oid": "64d3cbb4e69f714956a2f8f1"
+  },
+  "name": "Ginger",
+  "description": "Ginger has been used as a spice or as a medicine since ancient times. Give a good kick to any dish with the perfect amount of spicy, tangy, and bold flavor in just a pinch.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/ginger.jpg",
+  "previous_rates": "147,147,147,163,163,163",
+  "today": 163,
+  "__v": 0,
+  "index": "10"
+},
+{
+  "_id": {
+    "$oid": "64d3cd221270fa80fadd303b"
+  },
+  "name": "Green Corriander",
+  "description": "\nCoriander leaves are green, fragile with a decorative appearance. They contain minimal aroma and have a spicy sweet taste.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/green coriander.jpg",
+  "previous_rates": "9,9,9,8,8,8",
+  "today": 49,
+  "__v": 0,
+  "index": "11"
+},
+{
+  "_id": {
+    "$oid": "64d3cd221270fa80fadd303c"
+  },
+  "name": "Onion",
+  "description": "The beauty of an Onion is that it can go just about anywhere. Cut it into thin slices to top off your favourite burger or hot dog, or chop it into little cubes to bring out the sweetness in curry dishes. ",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/onion.jpg",
+  "previous_rates": "26,26,26,31,31,31",
+  "today": 31,
+  "__v": 0,
+  "index": "12"
+},
+{
+  "_id": {
+    "$oid": "64d3cd221270fa80fadd303d"
+  },
+  "name": "Potato",
+  "description": "Potato is a root vegetable and the most versatile of all. It is widely used across Indian kitchens paired with numerous other vegetables for preparation of several delicacies. Be it Brinjal, Cauliflower, Tomato, Onion or be it Soyabean Chunks or the Spinach clan- Potatoes goes with all for delicious cuisines.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/potato.jpg",
+  "previous_rates": "27,27,27,26,26,26",
+  "today": 26,
+  "__v": 0,
+  "index": "13"
+},
+{
+  "_id": {
+    "$oid": "64d3cd221270fa80fadd303e"
+  },
+  "name": "Tomato",
+  "description": "Fresh, and delicious tomatoes are a summertime favourite. Tomatoes are perfect for sauces and salsas, or try marinating them in herbs and olive oil for an easy appetizer. Enjoy a delicious cup of tomato soup on a lazy afternoon or simply use it as a pizza topping on an exciting evening watching your favourite sports.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/tomato.jpg",
+  "previous_rates": "145,145,145,147,147,147",
+  "today": 147,
+  "__v": 0,
+  "index": "14"
+},
+{
+  "_id": {
+    "$oid": "64d3cd221270fa80fadd303f"
+  },
+  "name": "Spinach",
+  "description": "Spinach is a leafy green flowering plants that has its roots in Asia. It is high on Iron and Proteins and promotes hair growth. It is also known to be rich in Vitamins, Folic Acid and Calcium.",
+  "category": "vegetable",
+  "quantity": 100,
+  "image": "css/images/spinach.jpg",
+  "previous_rates": "11,11,11,10,10,10",
+  "today": 10,
+  "__v": 0,
+  "index": "15"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da671"
+  },
+  "name": "Apple",
+  "description": "Spoil yourself with the luscious and mouth-watering Red Delicious Apple. Red Delicious Apples are known for their distinct, smooth texture and divinely sweet crispness.",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/apple.jpg",
+  "previous_rates": "65,70,75,80,75,75",
+  "today": 65,
+  "__v": 0,
+  "index": "0"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da672"
+  },
+  "name": "Banana",
+  "description": "The banana may be a simple fruit, but it's surprisingly versatile.Buy it, peel it, and eat it.",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/banana.jpg",
+  "previous_rates": "15,14,12,15,12,15",
+  "today": 15,
+  "__v": 0,
+  "index": "1"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da673"
+  },
+  "name": "Black Grapes",
+  "description": "Black grapes are small, sweet fruits — famous for their intense blueish-purple color that makes them look almost black",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/black grapes.jpg",
+  "previous_rates": "56,50,50,50,50,56",
+  "today": 56,
+  "__v": 0,
+  "index": "2"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da674"
+  },
+  "name": "Cherry",
+  "description": "A cherry is the fruit of many plants of the genus Prunus, and is a fleshy drupe",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/cherry.jpg",
+  "previous_rates": "80,75,78,72,75,80",
+  "today": 80,
+  "__v": 0,
+  "index": "3"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da675"
+  },
+  "name": "Green Grapes",
+  "description": "The green grape is a sweet fruit that grows in bunches. The fruit makes a popular snack, both because of its sweet flavor",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/green grapes.jpg",
+  "previous_rates": "125,125,137,118,118,122",
+  "today": 125,
+  "__v": 0,
+  "index": "4"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da676"
+  },
+  "name": "Kiwi",
+  "description": "Kiwifruit or Chinese gooseberry is the edible berry of several species of woody vines in the genus Actinidia. The most common cultivar group of kiwifruit is oval",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/kiwi.jpg",
+  "previous_rates": "340,340,330,320,320,320",
+  "today": 350,
+  "__v": 0,
+  "index": "5"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da677"
+  },
+  "name": "Mosambi",
+  "description": "The tastiest among the family of citrus fruits is mosambi . Also known as sweet lime, it is a sweet-sour fruit with greenish edible flesh",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/Mosambi.jpg",
+  "previous_rates": "40,40,40,40,40,40",
+  "today": 40,
+  "__v": 0,
+  "index": "6"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da678"
+  },
+  "name": "Musk Melon",
+  "description": "It is a yellow-coloured fruit with tempting sweetness and a pleasant aroma. Muskmelon is said to have its origin most likely in a region from India to Africa",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/musk melon.jpeg",
+  "previous_rates": "125,122,125,125,127,127",
+  "today": 120,
+  "__v": 0,
+  "index": "7"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da679"
+  },
+  "name": "Orange",
+  "description": "Oranges are a type of healthy, low calorie, highly nutritious citrus fruit",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/Orange.jpg",
+  "previous_rates": "55,55,40,40,40,40",
+  "today": 41,
+  "__v": 0,
+  "index": "8"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da67a"
+  },
+  "name": "Papaya",
+  "description": "Papayas are tropical fruit high in vitamin C and antioxidants. Certain compounds in papayas may have anticancer properties and improve heart",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/papaya.jpg",
+  "previous_rates": "14,16,14,16,14,16",
+  "today": 24,
+  "__v": 0,
+  "index": "9"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da67b"
+  },
+  "name": "Pear",
+  "description": "Pears are fruits produced and consumed around the world, growing on a tree and harvested in late summer into mid-autumn",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/pear.jpg",
+  "previous_rates": "36,36,29,36,37,32",
+  "today": 40,
+  "__v": 0,
+  "index": "10"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da67c"
+  },
+  "name": "Pomegranate",
+  "description": "Pomegranates are low in calories and fat but high in fiber, vitamins, and minerals. Benefits include antioxidants, heart health",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/pomegranate.jpg",
+  "previous_rates": "100,100,100,100,100,100",
+  "today": 110,
+  "__v": 0,
+  "index": "11"
+},
+{
+  "_id": {
+    "$oid": "64daa2413379f979c60da67d"
+  },
+  "name": "Strawberry",
+  "description": "The fruit is widely appreciated for its characteristic aroma, bright red color, juicy texture, and sweetness. It is consumed in large quantities",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/strawberry.jpg",
+  "previous_rates": "137,135,135,135,132,131",
+  "today": 131,
+  "__v": 0,
+  "index": "12"
+},
+{
+  "_id": {
+    "$oid": "64daa2a85883f49317d7b115"
+  },
+  "name": "Watermelon",
+  "description": "Watermelon is a flowering plant species of the Cucurbitaceae family and the name of its edible fruit. A scrambling and trailing vine-like plant, it is a highly cultivated fruit worldwide, with more than 1,000 varieties.",
+  "category": "fruit",
+  "quantity": 100,
+  "image": "css/images/watermelon.jpg",
+  "previous_rates": "55,54,50,50,50,45",
+  "today": 50,
+  "__v": 0,
+  "index": "13"
+}]
