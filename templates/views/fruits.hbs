@@ -64,10 +64,18 @@
             }
 
             function add(i) {
-                var x = Number(document.getElementsByClassName('inp')[i].value);
-                if (x < 9)
-                    document.getElementsByClassName('inp')[i].value = x + 1;
-            }
+    var elements = document.getElementsByClassName('inp');
+    console.log("Number of elements with class 'inp':", elements.length);
+
+    if (i >= 0 && i < elements.length) {
+        var x = Number(elements[i].value);
+        if (x < 9)
+            elements[i].value = x + 1;
+    } else {
+        console.error("Invalid index:", i);
+    }
+}
+
         </script>
         {{/each}}
     </div>
